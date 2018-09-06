@@ -10,6 +10,7 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
+import { Analytics } from 'aws-amplify';
 import ActionButton from 'react-native-action-button';
 import Swipeout from 'react-native-swipeout';
 import Loading from './Loading';
@@ -17,9 +18,14 @@ import theme from '../theme';
 import uuid from 'uuid';
 
 // BEGIN-REDUX
-import { connect } from 'react-redux';
-import actions from '../redux/actions';
+// import { connect } from 'react-redux';
+// import actions from '../redux/actions';
 // END-REDUX
+
+// BEGIN APPSYNC
+import { compose } from 'react-apollo';
+import * as GraphQL from '../graphql';
+// END APPSYNC
 
 // Platform-dependent Touchable component
 const Touchable = (Platform.OS === 'android') ? TouchableNativeFeedback : TouchableHighlight;
@@ -118,6 +124,10 @@ const NoteListItem = (props) => {
  * @extends {React.Component}
  */
 class NoteList extends React.Component {
+
+    componentDidMount() {
+        Analytics.record('FIRST-EVENT-NAME');
+    }
     /**
      * Initial state for the component.  The activeRow is the object that has an open
      * drawer for swiping.  Only one drawer can be open at any time.  It is null to
@@ -273,11 +283,11 @@ class NoteList extends React.Component {
  *
  * @param {Object} state the redux store state
  */
-const mapStateToProps = (state) => {
-    return {
-        notes: state.notes
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         notes: state.notes
+//     };
+// };
 
 /**
  * Maps the dispatch method to dispatch the appropriate actions based
@@ -285,13 +295,20 @@ const mapStateToProps = (state) => {
  *
  * @param {Function} dispatch the dispatcher from redux
  */
-const mapDispatchToProps = (dispatch) => {
-    return {
-        deleteNote: (noteId) => dispatch(actions.notes.deleteNote({ noteId }))
-    };
-};
-const NoteListScreen = connect(mapStateToProps, mapDispatchToProps)(NoteList);
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         deleteNote: (noteId) => dispatch(actions.notes.deleteNote({ noteId }))
+//     };
+// };
+
+// const NoteListScreen = connect(mapStateToProps, mapDispatchToProps)(NoteList);
 
 // END-REDUX
+
+
+const NoteListScreen = compose(
+  GraphQL.operations.ListAllNotes,
+  GraphQL.operations.DeleteNote
+)(NoteList);
 
 export default NoteListScreen;

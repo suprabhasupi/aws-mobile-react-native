@@ -1,0 +1,70 @@
+{
+	"projectPath": "/Users/Suprabha/Projects/aws-mobile-react-native-notes-tutorial",
+	"mobileProjectID": "bf4c8acf-747f-4d94-b472-337ecd472e4d",
+	"backupAWSMobileJSDirPath": "/Users/Suprabha/Projects/aws-mobile-react-native-notes-tutorial/~awsmobilejs-2018-09-05-12-33-42",
+	"projectInfo": {
+		"ProjectName": "aws-mobile-react-native-notes-tutorial",
+		"ProjectPath": "/Users/Suprabha/Projects/aws-mobile-react-native-notes-tutorial",
+		"InitializationTime": "",
+		"LastConfigurationTime": "",
+		"LastNPMInstallTime": "",
+		"FrontendLastBuildTime": "",
+		"LastPublishTime": "",
+		"BackendLastSyncTime": "",
+		"BackendLastBuildTime": "",
+		"BackendLastPushTime": "",
+		"BackendProjectID": "",
+		"BackendProjectName": "",
+		"BackendProjectConsoleUrl": "",
+		"BackendProjectCreationTime": "",
+		"BackendProjectLastUpdatedTime": "",
+		"Framework": "react-native"
+	},
+	"projectConfig": {
+		"SourceDir": "/",
+		"DistributionDir": "/",
+		"BuildCommand": "npm run-script build",
+		"StartCommand": "npm run-script start"
+	},
+	"packageJson": {
+		"name": "notes",
+		"version": "0.1.0",
+		"private": true,
+		"devDependencies": {
+			"babel-preset-react-native-stage-0": "^1.0.1",
+			"jest-expo": "^21.0.2",
+			"react-test-renderer": "16.0.0-alpha.12"
+		},
+		"scripts": {
+			"start": "react-native start",
+			"android": "react-native run-android",
+			"ios": "react-native run-ios",
+			"test": "node node_modules/jest/bin/jest.js --watch"
+		},
+		"jest": {
+			"preset": "jest-expo"
+		},
+		"dependencies": {
+			"aws-amplify": "^1.0.8",
+			"awsmobile-cli": "^1.1.5",
+			"color": "^2.0.0",
+			"flux-standard-action": "^1.2.0",
+			"react": "16.0.0-alpha.12",
+			"react-native": "^0.48.4",
+			"react-native-action-button": "^2.8.1",
+			"react-native-swipeout": "^2.2.2",
+			"react-native-vector-icons": "^4.4.2",
+			"react-navigation": "^1.0.0-beta.15",
+			"react-redux": "^5.0.6",
+			"redux": "^3.7.2",
+			"redux-actions": "^2.2.1",
+			"redux-logger": "^3.0.6",
+			"redux-persist": "^5.4.0",
+			"redux-promise": "^0.5.3",
+			"uuid": "^3.1.0"
+		}
+	},
+	"framework": "react-native",
+	"initialStage": "invalid",
+	"strategy": "link"
+}
